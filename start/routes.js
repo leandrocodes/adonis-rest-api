@@ -20,18 +20,24 @@ Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
 
-Route.get('/postagens', () => {
-  return { message: 'Hello' }
-})
+Route.group(() => {
+  Route.get('/', () => {
+    return { message: 'Lista de postagens' }
+  })
 
-Route.post('/postagens', () => {
-  return { message: 'Postado' }
-})
+  Route.get('/:id', ({ params }) => {
+    return { message: `Postagem específica ${params.id}` }
+  })
 
-Route.put('/postagens', () => {
-  return { message: 'Atualizado' }
-})
+  Route.post('/', () => {
+    return { message: 'Postado' }
+  })
 
-Route.delete('/postagens', () => {
-  return { message: 'Deletado' }
-})
+  Route.put('/', () => {
+    return { message: 'Atualizado' }
+  })
+
+  Route.delete('/', () => {
+    return { message: 'Deletado' }
+  })
+}).prefix('/postagens')
