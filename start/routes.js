@@ -27,3 +27,11 @@ Route.get('/postagens', () => {
 Route.post('/postagens', () => {
   return { message: 'Postado' }
 })
+
+Route.put('/postagens', () => {
+  return { message: 'Atualizado' }
+})
+
+Route.delete('/postagens', () => {
+  return { message: 'Deletado' }
+})
