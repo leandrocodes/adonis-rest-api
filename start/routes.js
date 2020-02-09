@@ -16,28 +16,30 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+// Route.get('/', () => {
+//   return { greeting: 'Hello world in JSON' }
+// })
 
-Route.group(() => {
-  Route.get('/', () => {
-    return { message: 'Lista de postagens' }
-  })
+// Route.group(() => {
+//   Route.get('/', () => {
+//     return { message: 'Lista de postagens' }
+//   })
 
-  Route.get('/:id', ({ params }) => {
-    return { message: `Postagem específica ${params.id}` }
-  })
+//   Route.get('/:id', ({ params }) => {
+//     return { message: `Postagem específica ${params.id}` }
+//   })
 
-  Route.post('/', () => {
-    return { message: 'Postado' }
-  })
+//   Route.post('/', () => {
+//     return { message: 'Postado' }
+//   })
 
-  Route.put('/', () => {
-    return { message: 'Atualizado' }
-  })
+//   Route.put('/', () => {
+//     return { message: 'Atualizado' }
+//   })
 
-  Route.delete('/', () => {
-    return { message: 'Deletado' }
-  })
-}).prefix('/postagens')
+//   Route.delete('/', () => {
+//     return { message: 'Deletado' }
+//   })
+// }).prefix('/postagens')
+
+Route.get('/', 'TesteController.index')
