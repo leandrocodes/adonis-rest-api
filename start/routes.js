@@ -23,3 +23,7 @@ Route.get('/', () => {
 Route.get('/postagens', () => {
   return { message: 'Hello' }
 })
+
+Route.post('/postagens', () => {
+  return { message: 'Postado' }
+})
