@@ -1,9 +1,9 @@
 'use strict'
 
-class TesteController {
+class PostController {
   index() {
     return { greeting: 'Hello World' }
   }
 }
 
-module.exports = TesteController
+module.exports = PostController

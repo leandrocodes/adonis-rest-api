@@ -42,4 +42,4 @@ const Route = use('Route')
 //   })
 // }).prefix('/postagens')
 
-Route.get('/', 'TesteController.index')
+Route.get('/', 'PostController.index')
