@@ -11,10 +11,10 @@ class PostController {
 	
   async store({ request }) {
     //console.log(req)
-    const { titulo, corpo } = request.all()
+    const { title, body } = request.all()
     const post = {
-      titulo,
-      corpo
+      title,
+      body
     }
     return { message: 'Store method by a post request.', post }
   }
