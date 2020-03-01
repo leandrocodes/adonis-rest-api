@@ -5,8 +5,15 @@ class PostController {
     return { greeting: 'Hello World' }
   }
 
-  store() {
-    return { mensagem: 'Store method by a post request.'}
+  store({ request }) {
+    //console.log(req)
+    const { titulo, corpo } = request.all()
+    const post = {
+      titulo,
+      corpo,
+    }
+    console.log(post)
+    return { mensagem: 'Store method by a post request.', post }
   }
 }
 
