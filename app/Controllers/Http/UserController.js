@@ -59,7 +59,11 @@ class UserController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show({ params, request, response, view }) {}
+  async show({ params, request, response, view }) {
+    const id = params.id
+    const user = await UserModel.find(id)
+    response.send(user)
+  }
 
   /**
    * Render a form to update an existing user.
