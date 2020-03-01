@@ -90,7 +90,12 @@ class UserController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy({ params, request, response }) {}
+  async destroy({ params, request, response }) {
+    const id = params.id
+    const user = await UserModel.find(id)
+    user.delete()
+    response.send({ Message: 'successfully destroyed' })
+  }
 }
 
 module.exports = UserController
