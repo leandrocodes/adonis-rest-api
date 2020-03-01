@@ -38,7 +38,10 @@ class UserController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {}
+  async store({ request, response }) {
+    const data = request.all()
+    response.send(data)
+  }
 
   /**
    * Display a single user.
