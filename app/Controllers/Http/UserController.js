@@ -58,7 +58,7 @@ class UserController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {
+  async register({ request, response }) {
     const data = request.all()
     const user = await UserModel.create(data)
     response.send(user)
