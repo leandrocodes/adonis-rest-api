@@ -18,6 +18,10 @@ class PostController {
 
   update({ request, response, params }) {
     return { message: 'Update method by a put request.', id: params.id }
+	}
+	
+  delete({ params }) {
+    return { message: 'Delete method by a put request.', id: params.id }
   }
 }
 
