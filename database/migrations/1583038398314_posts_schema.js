@@ -9,7 +9,8 @@ class PostsSchema extends Schema {
       table.increments()
       table.string('title', 255).notNullable()
       table.text('body').notNullable()
-      table.integer('user_id').unsigned()
+      table.string('img', 255)
+      table.integer('user_id').unsigned().notNullable()
 
       table
         .foreign('user_id')
