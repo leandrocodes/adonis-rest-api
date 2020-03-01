@@ -1,15 +1,15 @@
 'use strict'
 
 class PostController {
-  index() {
+  async index() {
     return { message: 'Post route test.' }
 	}
 	
-	show({ params }) {
+	async show({ params }) {
     return { message: 'Show method by a get request.', id: params.id }
 	}
 	
-  store({ request }) {
+  async store({ request }) {
     //console.log(req)
     const { titulo, corpo } = request.all()
     const post = {
@@ -19,11 +19,11 @@ class PostController {
     return { message: 'Store method by a post request.', post }
   }
 
-  update({ params }) {
+  async update({ params }) {
     return { message: 'Update method by a put request.', id: params.id }
 	}
 	
-  delete({ params }) {
+  async destroy({ params }) {
     return { message: 'Delete method by a delete request.', id: params.id }
   }
 }
