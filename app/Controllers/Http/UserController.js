@@ -8,7 +8,7 @@
  * Resourceful controller for interacting with users
  */
 
-const UserModel = use ('App/Models/User')
+const UserModel = use('App/Models/User')
 
 class UserController {
   /**
@@ -80,7 +80,14 @@ class UserController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update({ params, request, response }) {}
+  async update({ params, request, response }) {
+    const id = params.id
+    const data = await request.all()
+    const user = await UserModel.find(id)
+    await user.merge(data)
+    await user.save()
+    response.send(user)
+  }
 
   /**
    * Delete a user with id.
@@ -93,7 +100,7 @@ class UserController {
   async destroy({ params, request, response }) {
     const id = params.id
     const user = await UserModel.find(id)
-    user.delete()
+    await user.delete()
     response.send({ Message: 'successfully destroyed' })
   }
 }
