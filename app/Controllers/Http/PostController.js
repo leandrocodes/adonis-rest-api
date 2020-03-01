@@ -24,7 +24,6 @@ class PostController {
     const posts = await PostModel.all()
     response.send(posts)
   }
-
   /**
    * Render a form to be used for creating a new post.
    * GET posts/create

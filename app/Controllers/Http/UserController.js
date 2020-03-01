@@ -12,6 +12,20 @@ const UserModel = use('App/Models/User')
 
 class UserController {
   /**
+   * Performs a user login and returns a JWT
+   * POST /ogin
+   *
+   * @param {request}
+   * @param {response}
+   * @param {auth}
+   */
+  async login({ request, response, auth }) {
+    const { email, password } = request.all()
+    const authenticate = await auth.attempt(email, password)
+    response.send(authenticate)
+  }
+
+  /**
    * Show a list of all users.
    * GET users
    *
@@ -66,6 +80,22 @@ class UserController {
   }
 
   /**
+   * Display all posts of single user.
+   * GET users/:id/posts
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+  async posts({ params, request, response, view }) {
+    const id = params.id
+    const user = await UserModel.find(id)
+    const posts = await user.posts().fetch()
+    response.send(posts)
+  }
+
+  /**
    * Render a form to update an existing user.
    * GET users/:id/edit
    *
@@ -106,12 +136,6 @@ class UserController {
     const user = await UserModel.find(id)
     await user.delete()
     response.send({ Message: 'successfully destroyed' })
-  }
-
-  async login({ request, response, auth }) {
-    const { email, password } = request.all()
-    const authenticate = await auth.attempt(email, password)
-    response.send(authenticate)
   }
 }
 
