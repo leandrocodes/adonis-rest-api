@@ -61,6 +61,7 @@ class PostController {
   async show({ params, request, response, view }) {
     const id = params.id
     const post = await PostModel.find(id)
+    post.author = await post.user().fetch()
     response.send(post)
   }
 
