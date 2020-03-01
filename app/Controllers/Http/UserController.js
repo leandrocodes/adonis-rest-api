@@ -7,6 +7,9 @@
 /**
  * Resourceful controller for interacting with users
  */
+
+const UserModel = use ('App/Models/User')
+
 class UserController {
   /**
    * Show a list of all users.
@@ -40,7 +43,8 @@ class UserController {
    */
   async store({ request, response }) {
     const data = request.all()
-    response.send(data)
+    const user = await UserModel.create(data)
+    response.send(user)
   }
 
   /**
