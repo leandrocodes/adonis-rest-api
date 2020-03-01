@@ -17,7 +17,8 @@
 
 const Route = use('Route')
 
-Route.get('/', 'PostController.index')
-Route.post('/', 'PostController.store')
-Route.put('/:id', 'PostController.update')
-Route.delete('/:id', 'PostController.delete')
+Route.get('/posts/', 'PostController.index')
+Route.get('/posts/:id', 'PostController.show')
+Route.post('/posts/', 'PostController.store')
+Route.put('/posts/:id', 'PostController.update')
+Route.delete('/posts/:id', 'PostController.delete')

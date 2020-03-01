@@ -2,9 +2,13 @@
 
 class PostController {
   index() {
-    return { greeting: 'Hello World' }
-  }
-
+    return { message: 'Post route test.' }
+	}
+	
+	show({ params }) {
+    return { message: 'Show method by a get request.', id: params.id }
+	}
+	
   store({ request }) {
     //console.log(req)
     const { titulo, corpo } = request.all()
@@ -12,16 +16,15 @@ class PostController {
       titulo,
       corpo
     }
-    console.log(post)
     return { message: 'Store method by a post request.', post }
   }
 
-  update({ request, response, params }) {
+  update({ params }) {
     return { message: 'Update method by a put request.', id: params.id }
 	}
 	
   delete({ params }) {
-    return { message: 'Delete method by a put request.', id: params.id }
+    return { message: 'Delete method by a delete request.', id: params.id }
   }
 }
 
