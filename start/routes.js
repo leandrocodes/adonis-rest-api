@@ -19,3 +19,4 @@ const Route = use('Route')
 
 Route.get('/', 'PostController.index')
 Route.post('/', 'PostController.store')
+Route.put('/', 'PostController.update')

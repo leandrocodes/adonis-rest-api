@@ -10,11 +10,20 @@ class PostController {
     const { titulo, corpo } = request.all()
     const post = {
       titulo,
-      corpo,
+      corpo
     }
     console.log(post)
-    return { mensagem: 'Store method by a post request.', post }
-  }
+    return { message: 'Store method by a post request.', post }
+	}
+	
+	update({ request }) {
+		const { titulo, corpo } = request.all()
+		const post = {
+			titulo,
+			corpo
+		}
+		return { message: 'Update method by a put request.', post }
+	}
 }
 
 module.exports = PostController
