@@ -17,5 +17,6 @@
 
 const Route = use('Route')
 
-Route.resource('/posts', 'PostController')
+Route.post('/login', 'UserController.login')
 Route.resource('/users', 'UserController')
+Route.resource('/posts', 'PostController').middleware(['auth'])

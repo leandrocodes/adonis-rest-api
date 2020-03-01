@@ -107,6 +107,12 @@ class UserController {
     await user.delete()
     response.send({ Message: 'successfully destroyed' })
   }
+
+  async login({ request, response, auth }) {
+    const { email, password } = request.all()
+    const authenticate = await auth.attempt(email, password)
+    response.send(authenticate)
+  }
 }
 
 module.exports = UserController
